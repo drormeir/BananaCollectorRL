@@ -8,7 +8,7 @@ This project was submitted as part of [Udacity's Deep Reinforcement Learning Nan
 The purpose of the project is to build and train a single agant that navigates and collecting bananas in a large square world.
 ![Trained Agent][image1]
 
-A reward of +1 is provided for collecting a yellow banana, and a reward of -1 is provided for collecting a blue banana. Thus, the goal of the agent is to collect as many yellow bananas as possible while avoiding blue bananas.
+This game is episodic, where each episode is consists of 300 steps. For each step, a reward of +1 is provided for collecting a yellow banana, and a reward of -1 is provided for collecting a blue banana. The goal of the agent is to collect as many yellow bananas as possible while avoiding blue bananas. The minimal requierment for success is to have an average score of at least 13.0 points in 100 consecutive episodes.
 
 The agent is implemented in Python 3.6 + PyTorch. The algorithm is based on ["Double Duel Q-network"](https://arxiv.org/abs/1511.06581) with "Epsilon-Greedy policy" for environment exploration and an "Experience Replay Buffer" as a dynamic dataset to learn from.
 
