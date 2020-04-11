@@ -1,11 +1,11 @@
 [//]: # (Image References)
-[image1]: https://user-images.githubusercontent.com/10624937/42135619-d90f2f28-7d12-11e8-8823-82b970a54d7e.gif "Trained Agent"
+[image1]: https://github.com/drormeir/BananaCollector/blob/master/TrainedAgent.gif "Trained Agent"
 [image2]: https://user-images.githubusercontent.com/10624937/42386929-76f671f0-8106-11e8-9376-f17da2ae852e.png "Kernel"
 
 # BananaCollector
 This project was submitted as part of [Udacity's Deep Reinforcement Learning Nanodegree](https://www.udacity.com/course/deep-reinforcement-learning-nanodegree--nd893) and is similar to [UnityML "Food Collector"](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#food-collector)
 
-The purpose of the project is to build and train a single agant that navigates and collecting bananas in a large square world.
+The purpose of the project is to build and train a single agent that navigates and collecting bananas in a large square world.
 ![Trained Agent][image1]
 
 This game is episodic, where each episode is consists of 300 steps. For each step, a reward of +1 is provided for collecting a yellow banana, and a reward of -1 is provided for collecting a blue banana. The goal of the agent is to collect as many yellow bananas as possible while avoiding blue bananas. The minimal requierment for success is to have an average score of at least 13.0 points in 100 consecutive episodes.
@@ -52,4 +52,8 @@ python -m ipykernel install --user --name drlnd --display-name "drlnd"
 5. Before running code in a notebook, change the kernel to match the `drlnd` environment by using the drop-down `Kernel` menu. 
 
 ![Kernel][image2]
+
+
+# Usage
+The jupyter notebook `Navigation_Test.ipynb` imports all necessary dependencies and the python files of this project.
 
