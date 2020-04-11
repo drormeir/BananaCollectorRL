@@ -57,3 +57,5 @@ python -m ipykernel install --user --name drlnd --display-name "drlnd"
 # Usage
 The jupyter notebook `Navigation_Test.ipynb` imports all necessary dependencies and the python files of this project.
 
+# Report
+A detailed report describing the learning algorithm, along with ideas for future work can be found in `report.md`
