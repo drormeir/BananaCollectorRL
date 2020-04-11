@@ -12,6 +12,9 @@ This game is episodic, where each episode is consists of 300 steps. For each ste
 
 The agent is implemented in Python 3.6 + PyTorch. The algorithm is based on ["Double Duel Q-network"](https://arxiv.org/abs/1511.06581) with "Epsilon-Greedy policy" for environment exploration and an "Experience Replay Buffer" as a dynamic dataset to learn from.
 
+Original git repo of this project can be found at:
+https://github.com/udacity/deep-reinforcement-learning/tree/master/p1_navigation
+
 # Installation
 To set up your python environment to run the code in this repository, follow the instructions below:
 1. Create (and activate) a new environment with Python 3.6.
