@@ -48,7 +48,7 @@ class ddqn_agent():
         self.batch_size    = batch_size
         assert type(learning_rate) is float
         self.lr_max        = learning_rate
-        self.lr_min        = 1e-6
+        self.lr_min        = 1e-5
         self.lr_decay      = 0.5
         self.hidden_layers = hidden_layers
         self.tau0          = tau
@@ -70,23 +70,22 @@ class ddqn_agent():
         self.lr_at_minimum  = False
         if self.verbose_level > 0:
             print("Reset DDQN agent with parameters:")
-            print("state_size=",self.state_size)
-            print("action_size=",self.action_size)
-            print("hidden_layers=",self.hidden_layers)
-            print("seed=",self.seed)
-            print("update_every=",self.update_every)
-            print("batch_size=",self.batch_size)
-            print("buffer_size=",self.buffer_size)
-            print("learning_rate=",self.lr)
-            print("tau=",self.tau0)
-            print("random_walk=",self.random_walk)
-            print("gamma=",self.gamma)
+            print("state_size=\t{}".format(self.state_size))
+            print("action_size=\t{}".format(self.action_size))
+            print("hidden_layers=\t",self.hidden_layers)
+            print("seed=\t{}".format(self.seed))
+            print("update_every=\t{}".format(self.update_every))
+            print("batch_size=\t{}".format(self.batch_size))
+            print("buffer_size=\t{}".format(self.buffer_size))
+            print("learning_rate=\t{:.4e}".format(self.lr))
+            print("tau=\t{:.3f}".format(self.tau0))
+            print("random_walk=\t",self.random_walk)
+            print("gamma=\t{:.3f}".format(self.gamma))
             
         # Q-Network
         self.qnetwork_local  = DuelQNetwork(self.state_size, self.action_size, self.hidden_layers, self.seed).to(self.device)
         self.qnetwork_target = DuelQNetwork(self.state_size, self.action_size, self.hidden_layers, self.seed).to(self.device)
         self.optimizer       = optim.Adam(self.qnetwork_local.parameters(), lr=self.lr)
-        self.__set_lr()
         # Replay memory
         self.memory          = ReplayBuffer(self.state_size, self.action_size, self.buffer_size, self.batch_size, self.seed)
     
@@ -195,39 +194,31 @@ class ddqn_agent():
         self.prev_prev_act = self.prev_act
         self.prev_act      = new_act
         return new_act, exploitation
-
+    
+    def learning_rate_step(self):
+        self.lr *= self.lr_decay
+        if self.lr <= self.lr_min:
+            self.lr_at_minimum = True
+            self.lr            = self.lr_min
+        if self.verbose_level > 1:
+            print("\nChanging learning rate to: {:.4e}".format(self.lr))
+        for param_group in self.optimizer.param_groups:
+            param_group['lr'] = self.lr
+        
+    def is_lr_at_minimum(self):
+        if self.lr_at_minimum and self.verbose_level > 1:
+            print("\nCannot reduce learning rate because it is already at the minimum: {:.4e}".format(self.lr))
+        return self.lr_at_minimum
+    
     def save(self, filename):
-        shutil.rmtree(filename,ignore_errors=True)
+        shutil.rmtree(filename,ignore_errors=True) # avoid file not found error
         os.makedirs(filename)
         torch.save(self.qnetwork_local.state_dict(),  os.path.join(filename,"local.pth"))
         torch.save(self.qnetwork_target.state_dict(), os.path.join(filename,"target.pth"))
         torch.save(self.optimizer.state_dict(),       os.path.join(filename,"optimizer.pth"))
 
     def load(self, filename):
-        self.__basic_load(filename) # do not change self.lr
-        self.__set_lr()
-
-    def reload_and_learning_rate_step(self, filename):
-        if self.lr_at_minimum:
-            if self.verbose_level > 1:
-                print("\nCannot reduce learning rate because it is already at the minimum:",self.lr)
-            return False
-        self.__basic_load(filename) # do not change self.lr
-        self.lr *= self.lr_decay
-        if self.lr <= self.lr_min:
-            self.lr_at_minimum = True
-            self.lr            = self.lr_min
-        self.__set_lr()
-        return True
-        
-    def __basic_load(self, filename):
         self.qnetwork_local.load_state_dict(torch.load(os.path.join(filename,"local.pth")))
         self.qnetwork_local.load_state_dict(torch.load(os.path.join(filename,"target.pth")))
         self.optimizer.load_state_dict(torch.load(os.path.join(filename,"optimizer.pth")))
-        
-    def __set_lr(self):
-        if self.verbose_level > 1:
-            print("\nChanging learning rate to:",self.lr)
-        for param_group in self.optimizer.param_groups:
-            param_group['lr'] = self.lr
-        
+
