@@ -5,18 +5,18 @@
 # BananaCollector
 This project was submitted as part of [Udacity's Deep Reinforcement Learning Nanodegree](https://www.udacity.com/course/deep-reinforcement-learning-nanodegree--nd893) and is similar to [UnityML "Food Collector"](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#food-collector)
 
-The purpose of the project is to build and train a single agent that navigates and collecting bananas in a large square world.
+The purpose of the project is to build and train a single agent that navigates and collecting bananas in a big square world.
 ![Trained Agent][image1]
 
-This game is episodic, where each episode is consists of 300 steps. For each step, a reward of +1 is provided for collecting a yellow banana, and a reward of -1 is provided for collecting a blue banana. The goal of the agent is to collect as many yellow bananas as possible while avoiding blue bananas. The minimal requirement for success is to have an average score of at least 13.0 points in 100 consecutive episodes.
+This game is episodic, where each episode is consists of 300 steps. The environment proves a reward for each one of them. The environment provides a bonus of +1 for collecting a yellow banana, and -1 for collecting a blue banana. The goal of the agent is to collect as many yellow bananas as possible while avoiding blue bananas. The minimal requirement for success is to have an average score of at least 13.0 points in 100 consecutive episodes.
 
-The agent is implemented in Python 3.6 + PyTorch. The algorithm is based on ["Double Duel Q-network"](https://arxiv.org/abs/1511.06581) with "Epsilon-Greedy policy" for environment exploration and an "Experience Replay Buffer" as a dynamic dataset to learn from.
+The agent runs on Python 3.6 + PyTorch. The paper that describes the algorithm is ["Double Duel Q-network"](https://arxiv.org/abs/1511.06581) with "Epsilon-Greedy policy" for environment exploration and an "Experience Replay Buffer" as a dynamic dataset for the learning process.
 
-Original git repo of this project can be found at:
+The original git repo of this project is at:
 https://github.com/udacity/deep-reinforcement-learning/tree/master/p1_navigation
 
 # Installation
-To set up your python environment to run the code in this repository, follow the instructions below:
+To set up a python environment to run the code in this repository, please follow the instructions below:
 1. Create (and activate) a new environment with Python 3.6.
 
     - __Linux__ or __Mac__: 
@@ -61,4 +61,4 @@ python -m ipykernel install --user --name drlnd --display-name "drlnd"
 The Jupyter notebook `Navigation_Test.ipynb` imports all necessary dependencies and the python files of this project.
 
 # Report
-A detailed report describing the learning algorithm, along with ideas for future work can be found in `report.md`
+A detailed report describing the learning algorithm, along with ideas for future work is at [report.md](https://github.com/drormeir/BananaCollector/blob/master/Report.md)
