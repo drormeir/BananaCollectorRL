@@ -8,7 +8,7 @@ This project was submitted as part of [Udacity's Deep Reinforcement Learning Nan
 The purpose of the project is to build and train a single agent that navigates and collecting bananas in a large square world.
 ![Trained Agent][image1]
 
-This game is episodic, where each episode is consists of 300 steps. For each step, a reward of +1 is provided for collecting a yellow banana, and a reward of -1 is provided for collecting a blue banana. The goal of the agent is to collect as many yellow bananas as possible while avoiding blue bananas. The minimal requierment for success is to have an average score of at least 13.0 points in 100 consecutive episodes.
+This game is episodic, where each episode is consists of 300 steps. For each step, a reward of +1 is provided for collecting a yellow banana, and a reward of -1 is provided for collecting a blue banana. The goal of the agent is to collect as many yellow bananas as possible while avoiding blue bananas. The minimal requirement for success is to have an average score of at least 13.0 points in 100 consecutive episodes.
 
 The agent is implemented in Python 3.6 + PyTorch. The algorithm is based on ["Double Duel Q-network"](https://arxiv.org/abs/1511.06581) with "Epsilon-Greedy policy" for environment exploration and an "Experience Replay Buffer" as a dynamic dataset to learn from.
 
@@ -19,16 +19,16 @@ https://github.com/udacity/deep-reinforcement-learning/tree/master/p1_navigation
 To set up your python environment to run the code in this repository, follow the instructions below:
 1. Create (and activate) a new environment with Python 3.6.
 
-	- __Linux__ or __Mac__: 
-	```bash
-	conda create --name drlnd python=3.6
-	source activate drlnd
-	```
-	- __Windows__: 
-	```bash
-	conda create --name drlnd python=3.6 
-	conda activate drlnd
-	```
+    - __Linux__ or __Mac__: 
+    ```bash
+    conda create --name drlnd python=3.6
+    source activate drlnd
+    ```
+    - __Windows__: 
+    ```bash
+    conda create --name drlnd python=3.6 
+    conda activate drlnd
+    ```
 2. Install pytorch using conda:
 ```
 conda install pytorch=0.4.0 -c pytorch
@@ -58,7 +58,7 @@ python -m ipykernel install --user --name drlnd --display-name "drlnd"
 
 
 # Usage
-The jupyter notebook `Navigation_Test.ipynb` imports all necessary dependencies and the python files of this project.
+The Jupyter notebook `Navigation_Test.ipynb` imports all necessary dependencies and the python files of this project.
 
 # Report
 A detailed report describing the learning algorithm, along with ideas for future work can be found in `report.md`
