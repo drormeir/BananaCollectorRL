@@ -219,6 +219,6 @@ class ddqn_agent():
 
     def load(self, filename):
         self.qnetwork_local.load_state_dict(torch.load(os.path.join(filename,"local.pth")))
-        self.qnetwork_local.load_state_dict(torch.load(os.path.join(filename,"target.pth")))
+        self.qnetwork_target.load_state_dict(torch.load(os.path.join(filename,"target.pth")))
         self.optimizer.load_state_dict(torch.load(os.path.join(filename,"optimizer.pth")))
 
