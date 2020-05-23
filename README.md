@@ -31,7 +31,7 @@ To set up a python environment to run the code in this repository, please follow
     ```
 2. Install pytorch using conda:
 ```
-conda install pytorch=0.4.0 -c pytorch
+conda install pytorch torchvision cudatoolkit=10.2 -c pytorch
 ```
 3. Clone this git repo
 ```bash
