@@ -1,5 +1,5 @@
 [//]: # (Image References)
-[image1]: https://github.com/drormeir/BananaCollector/blob/master/TrainedAgent.gif "Trained Agent"
+[image1]: https://github.com/drormeir/BananaCollectorRL/blob/master/TrainedAgent.gif "Trained Agent"
 [image2]: https://user-images.githubusercontent.com/10624937/42386929-76f671f0-8106-11e8-9376-f17da2ae852e.png "Kernel"
 
 # BananaCollector
@@ -61,4 +61,4 @@ python -m ipykernel install --user --name drlnd --display-name "drlnd"
 The Jupyter notebook `Navigation_Test.ipynb` imports all necessary dependencies and the python files of this project.
 
 # Report
-A detailed report describing the learning algorithm, along with ideas for future work is at [report.md](https://github.com/drormeir/BananaCollector/blob/master/Report.md)
+A detailed report describing the learning algorithm, along with ideas for future work is at [report.md](https://github.com/drormeir/BananaCollectorRL/blob/master/Report.md)
