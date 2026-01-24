@@ -1,11 +1,11 @@
-Pillow>=4.2.1
+Pillow
 matplotlib
-numpy>=1.11.0
+numpy
 jupyter
-pytest>=3.2.2
+pytest
 docopt
 pyyaml
-protobuf==4.25.8
+protobuf
 grpcio
 pandas
 scipy
